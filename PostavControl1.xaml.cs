@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,6 +74,54 @@ namespace PPplutenkoKaskad
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void filterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Получаем выбранный элемент из ComboBox
+            ComboBoxItem selectedItem = (ComboBoxItem)filterComboBox.SelectedItem;
+
+            // Получаем текст выбранного элемента
+            string selectedFilter = selectedItem.Content.ToString();
+
+            // Вызываем функцию для фильтрации данных на основе выбранного фильтра
+            FilterData(selectedFilter);
+        }
+
+        private void FilterData(string filter)
+        {
+            string connectionString = "Data Source=DESKTOP-6KDN1VJ\\VLADSQL;Initial Catalog=PPplutenko;Integrated Security=True;MultipleActiveResultSets=True";
+
+
+            string query = "";
+
+            // В зависимости от выбранного фильтра формируем SQL-запрос
+            switch (filter)
+            {
+                case "Строительные решения":
+                    query = "SELECT * FROM Поставщики WHERE Наименование_поставщика = 'Строительные решения'";
+                    break;
+                case "БудМатериалы":
+                    query = "SELECT * FROM Поставщики WHERE Наименование_поставщика = 'БудМатериалы'";
+                    break;
+                case "ДомСтрой":
+                    query = "SELECT * FROM Поставщики WHERE Наименование_поставщика = 'ДомСтрой'";
+                    break;
+                default:
+                    query = "SELECT * FROM Поставщики";
+                    break;
+            }
+
+            // Выполняем SQL-запрос и обновляем отображаемую таблицу
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                // Обновляем источник данных для отображаемой таблицы
+                SuppliersDataGrid.ItemsSource = dataTable.DefaultView;
+            }
         }
     }
 }

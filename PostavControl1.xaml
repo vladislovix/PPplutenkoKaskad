@@ -19,7 +19,7 @@
         <Label Content="Поиск:" Foreground="White" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="SearchTextBox" Background="#444" Foreground="White" BorderBrush="#444" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Width="200" TextChanged="SearchTextBox_TextChanged" Grid.Column="1"/>
         <Button x:Name="SearchButton" Content="Найти" Background="#444" Foreground="White" BorderBrush="#444" HorizontalAlignment="Left" Margin="226,10,0,0" VerticalAlignment="Top" Width="76" Click="SearchButton_Click" Grid.Column="1"/>
-        <DataGrid x:Name="SuppliersDataGrid" Grid.Row="1" Grid.ColumnSpan="2" Margin="10" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" Background="#333" BorderBrush="#444" Foreground="#444">
+        <DataGrid x:Name="SuppliersDataGrid" Grid.Row="2" Grid.ColumnSpan="2" Margin="10,76,10,265" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" Background="#333" BorderBrush="#444" Foreground="#444">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID поставщика" Binding="{Binding Path=ID_поставщика}" Width="*" />
                 <DataGridTextColumn Header="Наименование поставщика" Binding="{Binding Path=Наименование_поставщика}" Width="*" />
@@ -29,5 +29,12 @@
         </DataGrid>
         <Button x:Name="DeleteButton" Content="Удалить" Background="#444" Foreground="White" BorderBrush="#444" HorizontalAlignment="Left" Margin="324,10,0,6" Width="75" Click="DeleteButton_Click" Grid.Column="1"/>
         <Button Grid.Column="1" Content="Добавить" Background="#444" Foreground="White" BorderBrush="#444" HorizontalAlignment="Left" Margin="425,10,0,0" VerticalAlignment="Top" Width="72" Click="Add_button"/>
+        <ComboBox Name="filterComboBox" SelectionChanged="filterComboBox_SelectionChanged" Grid.Column="1" Margin="521,9,22,9" HorizontalAlignment="Left" Width="100">
+            <ComboBoxItem Content="Все" />
+            <ComboBoxItem Content="Строительные решения" />
+            <ComboBoxItem Content="БудМатериалы" />
+            <ComboBoxItem Content="ДомСтрой" />
+        </ComboBox>
+        <Label Content=":Фильтр" Foreground="White" HorizontalAlignment="Left" Margin="631,0,0,0" VerticalAlignment="Center" Grid.Column="1"/>
     </Grid>
 </UserControl>
