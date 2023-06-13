@@ -19,8 +19,8 @@ namespace PPplutenkoKaskad
     /// </summary>
     public partial class AddPostav : Window
     {
-        PPplutenkoEntities db;
-        public AddPostav(PPplutenkoEntities db, Поставщики d)
+        diplomplEntities db;
+        public AddPostav(diplomplEntities db, Поставщики d)
         {
             InitializeComponent();
             this.db = db;

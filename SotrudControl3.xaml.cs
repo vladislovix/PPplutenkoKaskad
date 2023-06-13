@@ -20,12 +20,12 @@ namespace PPplutenkoKaskad
     /// </summary>
     public partial class SotrudControl3 : UserControl
     {
-        PPplutenkoEntities db;
+        diplomplEntities db;
         List<Сотрудники> tb;
         public SotrudControl3()
         {
             InitializeComponent();
-            db = new PPplutenkoEntities();
+            db = new diplomplEntities();
             tb = db.Сотрудники.ToList();
             SuppliersDataGrid.ItemsSource = tb;
         }
@@ -38,7 +38,7 @@ namespace PPplutenkoKaskad
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            db = new PPplutenkoEntities();
+            db = new diplomplEntities();
             Сотрудники item = SuppliersDataGrid.SelectedItem as Сотрудники;
             Сотрудники del = db.Сотрудники.Where(d => d.ID_сотрудника == item.ID_сотрудника).Single();
             db.Сотрудники.Remove(del);

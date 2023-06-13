@@ -31,9 +31,9 @@
         <Button Grid.Column="1" Content="Добавить" Background="#444" Foreground="White" BorderBrush="#444" HorizontalAlignment="Left" Margin="425,10,0,0" VerticalAlignment="Top" Width="72" Click="Add_button"/>
         <ComboBox Name="filterComboBox" SelectionChanged="filterComboBox_SelectionChanged" Grid.Column="1" Margin="521,9,22,9" HorizontalAlignment="Left" Width="100">
             <ComboBoxItem Content="Все" />
-            <ComboBoxItem Content="Строительные решения" />
-            <ComboBoxItem Content="БудМатериалы" />
-            <ComboBoxItem Content="ДомСтрой" />
+            <ComboBoxItem Content="ООО ИКС" />
+            <ComboBoxItem Content="Лучшие Импортеры" />
+            <ComboBoxItem Content="Глобальная Торговля" />
         </ComboBox>
         <Label Content=":Фильтр" Foreground="White" HorizontalAlignment="Left" Margin="631,0,0,0" VerticalAlignment="Center" Grid.Column="1"/>
     </Grid>

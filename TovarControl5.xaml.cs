@@ -20,9 +20,34 @@ namespace PPplutenkoKaskad
     /// </summary>
     public partial class TovarControl5 : UserControl
     {
+        diplomplEntities db;
+        List<Товары> tb;
         public TovarControl5()
         {
             InitializeComponent();
+            db = new diplomplEntities();
+            tb = db.Товары.ToList();
+            SuppliersDataGrid.ItemsSource = tb;
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Add_button(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

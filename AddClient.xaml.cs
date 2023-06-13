@@ -19,8 +19,8 @@ namespace PPplutenkoKaskad
     /// </summary>
     public partial class AddClient : Window
     {
-        PPplutenkoEntities db;
-        public AddClient(PPplutenkoEntities db, Клиенты d)
+        diplomplEntities db;
+        public AddClient(diplomplEntities db, Клиента d)
         {
             InitializeComponent();
             this.db = db;

@@ -21,42 +21,42 @@ namespace PPplutenkoKaskad
     /// </summary>
     public partial class ClientControl2 : UserControl
     {
-        PPplutenkoEntities db;
-        List<Клиенты> tb;
+        diplomplEntities db;
+        List<Клиента> tb;
         public ClientControl2()
         {
             InitializeComponent();
-            db = new PPplutenkoEntities();
-            tb = db.Клиенты.ToList();
+            db = new diplomplEntities();
+            tb = db.Клиента.ToList();
             SuppliersDataGrid.ItemsSource = tb;
         }
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            var Search = db.Клиенты.ToList();
+            var Search = db.Клиента.ToList();
             Search = Search.Where(x => x.ФИО_клиента.ToLower().StartsWith(SearchTextBox.Text.ToLower())).ToList();
             SuppliersDataGrid.ItemsSource = Search.ToList();
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            db = new PPplutenkoEntities();
-            Клиенты item = SuppliersDataGrid.SelectedItem as Клиенты;
-            Клиенты del = db.Клиенты.Where(d => d.ID_клиента == item.ID_клиента).Single();
-            db.Клиенты.Remove(del);
+            db = new diplomplEntities();
+            Клиента item = SuppliersDataGrid.SelectedItem as Клиента;
+            Клиента del = db.Клиента.Where(d => d.ID_клиента == item.ID_клиента).Single();
+            db.Клиента.Remove(del);
             db.SaveChanges();
             MessageBox.Show("Строка успешно удалена!");
             refreshdatagrid();
         }
         private void refreshdatagrid()
         {
-            SuppliersDataGrid.ItemsSource = db.Клиенты.ToList();
+            SuppliersDataGrid.ItemsSource = db.Клиента.ToList();
             SuppliersDataGrid.Items.Refresh();
         }
 
         private void Add_button(object sender, RoutedEventArgs e)
         {
-            var nw = new Клиенты();
-            db.Клиенты.Add(nw);
+            var nw = new Клиента();
+            db.Клиента.Add(nw);
             AddClient add = new AddClient(db, nw);
             add.ShowDialog();
             refreshdatagrid();

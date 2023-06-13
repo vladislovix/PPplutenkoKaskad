@@ -19,8 +19,8 @@ namespace PPplutenkoKaskad
     /// </summary>
     public partial class AddSotryd : Window
     {
-        PPplutenkoEntities db;
-        public AddSotryd(PPplutenkoEntities db, Сотрудники d)
+        diplomplEntities db;
+        public AddSotryd(diplomplEntities db, Сотрудники d)
         {
             InitializeComponent();
             this.db = db;

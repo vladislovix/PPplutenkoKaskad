@@ -12,12 +12,14 @@ namespace PPplutenkoKaskad
     using System;
     using System.Collections.Generic;
     
-    public partial class regis
+    public partial class Заказанные_товары
     {
-        public int id { get; set; }
-        public string fname { get; set; }
-        public string lname { get; set; }
-        public string login { get; set; }
-        public string pass { get; set; }
+        public int ID_товара { get; set; }
+        public int ID_заказа { get; set; }
+        public string Количество_товаров_в_заказе { get; set; }
+        public string Стоимость_товаров_в_заказе { get; set; }
+    
+        public virtual Заказы Заказы { get; set; }
+        public virtual Товары Товары { get; set; }
     }
 }

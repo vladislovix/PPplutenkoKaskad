@@ -22,7 +22,7 @@ namespace PPplutenkoKaskad
     
         public int ID_поставщика { get; set; }
         public string Наименование_поставщика { get; set; }
-        public string Адрес_поставщика { get; set; }
+        public string Адрес_поставщиа { get; set; }
         public string Телефон_поставщика { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

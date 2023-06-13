@@ -17,18 +17,18 @@ namespace PPplutenkoKaskad
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Заказы()
         {
-            this.ЗаказанныеТовары = new HashSet<ЗаказанныеТовары>();
+            this.Заказанные_товары = new HashSet<Заказанные_товары>();
         }
     
         public int ID_заказа { get; set; }
         public Nullable<System.DateTime> Дата_заказа { get; set; }
         public Nullable<int> ID_клиента { get; set; }
-        public Nullable<decimal> Сумма_заказа { get; set; }
+        public string Сумма_заказа { get; set; }
         public Nullable<int> ID_сотрудника { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ЗаказанныеТовары> ЗаказанныеТовары { get; set; }
-        public virtual Клиенты Клиенты { get; set; }
+        public virtual ICollection<Заказанные_товары> Заказанные_товары { get; set; }
+        public virtual Клиента Клиента { get; set; }
         public virtual Сотрудники Сотрудники { get; set; }
     }
 }

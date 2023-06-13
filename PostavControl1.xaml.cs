@@ -22,12 +22,12 @@ namespace PPplutenkoKaskad
     /// </summary>
     public partial class PostavControl1 : UserControl
     {
-        PPplutenkoEntities db;
+        diplomplEntities db;
         List<Поставщики> tb;
         public PostavControl1()
         {
             InitializeComponent();
-            db = new PPplutenkoEntities();
+            db = new diplomplEntities();
             tb = db.Поставщики.ToList();
             SuppliersDataGrid.ItemsSource = tb;
 
@@ -48,7 +48,7 @@ namespace PPplutenkoKaskad
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            db = new PPplutenkoEntities();
+            db = new diplomplEntities();
             Поставщики item = SuppliersDataGrid.SelectedItem as Поставщики;
             Поставщики del = db.Поставщики.Where(d => d.ID_поставщика == item.ID_поставщика).Single();
             db.Поставщики.Remove(del);
@@ -90,7 +90,8 @@ namespace PPplutenkoKaskad
 
         private void FilterData(string filter)
         {
-            string connectionString = "Data Source=DESKTOP-6KDN1VJ\\VLADSQL;Initial Catalog=PPplutenko;Integrated Security=True;MultipleActiveResultSets=True";
+            string connectionString = "data source=DESKTOP-6KDN1VJ;initial catalog=diplompl;integrated security=True;MultipleActiveResultSets=True;";
+
 
 
             string query = "";
@@ -98,14 +99,14 @@ namespace PPplutenkoKaskad
             // В зависимости от выбранного фильтра формируем SQL-запрос
             switch (filter)
             {
-                case "Строительные решения":
-                    query = "SELECT * FROM Поставщики WHERE Наименование_поставщика = 'Строительные решения'";
+                case "ООО ИКС":
+                    query = "SELECT * FROM Поставщики WHERE Наименование_поставщика = 'ООО ИКС'";
                     break;
-                case "БудМатериалы":
-                    query = "SELECT * FROM Поставщики WHERE Наименование_поставщика = 'БудМатериалы'";
+                case "Лучшие Импортеры":
+                    query = "SELECT * FROM Поставщики WHERE Наименование_поставщика = 'Лучшие Импортеры'";
                     break;
-                case "ДомСтрой":
-                    query = "SELECT * FROM Поставщики WHERE Наименование_поставщика = 'ДомСтрой'";
+                case "Глобальная Торговля":
+                    query = "SELECT * FROM Поставщики WHERE Наименование_поставщика = 'Глобальная Торговля'";
                     break;
                 default:
                     query = "SELECT * FROM Поставщики";
